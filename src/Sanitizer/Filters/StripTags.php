@@ -1,13 +1,13 @@
 <?php
+/**
+ * File copied from Waavi/Sanitizer https://github.com/waavi/sanitizer
+ * Sanitization functionality to be customized within this project before a 1.0 release.
+ */
 
 namespace Waavi\Sanitizer\Filters;
 
 use Waavi\Sanitizer\Contracts\Filter;
 
-/**
- * File copied from Waavi/Sanitizer https://github.com/waavi/sanitizer
- * Sanitization functionality to be customized within this project before a 1.0 release.
- */
 class StripTags implements Filter
 {
     /**

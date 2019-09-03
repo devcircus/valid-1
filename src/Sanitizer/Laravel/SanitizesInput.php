@@ -1,11 +1,11 @@
 <?php
-
-namespace PerfectOblivion\Valid\Sanitizer\Laravel;
-
 /**
  * File copied from Waavi/Sanitizer https://github.com/waavi/sanitizer
  * Sanitization functionality to be customized within this project before a 1.0 release.
  */
+
+namespace PerfectOblivion\Valid\Sanitizer\Laravel;
+
 trait SanitizesInput
 {
     /**

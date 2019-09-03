@@ -1,13 +1,13 @@
 <?php
+/**
+ * File copied from Waavi/Sanitizer https://github.com/waavi/sanitizer
+ * Sanitization functionality to be customized within this project before a 1.0 release.
+ */
 
 namespace PerfectOblivion\Valid\Sanitizer\Filters;
 
 use PerfectOblivion\Valid\Sanitizer\Contracts\Filter;
 
-/**
- * File copied from Waavi/Sanitizer https://github.com/waavi/sanitizer
- * Sanitization functionality to be customized within this project before a 1.0 release.
- */
 class Uppercase implements Filter
 {
     /**

@@ -1,4 +1,8 @@
 <?php
+/**
+ * File copied from Waavi/Sanitizer https://github.com/waavi/sanitizer
+ * Sanitization functionality to be customized within this project before a 1.0 release.
+ */
 
 namespace PerfectOblivion\Valid\Sanitizer;
 
@@ -7,10 +11,6 @@ use Illuminate\Support\Arr;
 use InvalidArgumentException;
 use Illuminate\Validation\ValidationRuleParser;
 
-/**
- * File copied from Waavi/Sanitizer https://github.com/waavi/sanitizer
- * Sanitization functionality to be customized within this project before a 1.0 release.
- */
 class Sanitizer
 {
     /** @var array */
