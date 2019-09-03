@@ -9,6 +9,7 @@ namespace PerfectOblivion\Valid\Sanitizer;
 use Closure;
 use Illuminate\Support\Arr;
 use InvalidArgumentException;
+use PerfectOblivion\Valid\Sanitizer\Filters;
 use Illuminate\Validation\ValidationRuleParser;
 
 class Sanitizer
@@ -21,15 +22,15 @@ class Sanitizer
 
     /** @var array */
     protected $filters = [
-        'capitalize'  => \Waavi\Sanitizer\Filters\Capitalize::class,
-        'cast'        => \Waavi\Sanitizer\Filters\Cast::class,
-        'escape'      => \Waavi\Sanitizer\Filters\EscapeHTML::class,
-        'format_date' => \Waavi\Sanitizer\Filters\FormatDate::class,
-        'lowercase'   => \Waavi\Sanitizer\Filters\Lowercase::class,
-        'uppercase'   => \Waavi\Sanitizer\Filters\Uppercase::class,
-        'trim'        => \Waavi\Sanitizer\Filters\Trim::class,
-        'strip_tags'  => \Waavi\Sanitizer\Filters\StripTags::class,
-        'digit'       => \Waavi\Sanitizer\Filters\Digit::class,
+        'capitalize'  => Filters\Capitalize::class,
+        'cast'        => Filters\Cast::class,
+        'escape'      => Filters\EscapeHTML::class,
+        'format_date' => Filters\FormatDate::class,
+        'lowercase'   => Filters\Lowercase::class,
+        'uppercase'   => Filters\Uppercase::class,
+        'trim'        => Filters\Trim::class,
+        'strip_tags'  => Filters\StripTags::class,
+        'digit'       => Filters\Digit::class,
     ];
 
     /**
@@ -57,6 +58,7 @@ class Sanitizer
     {
         $parsedRules = [];
         $rawRules = (new ValidationRuleParser($this->data))->explode($rules);
+
         foreach ($rawRules->rules as $attribute => $attributeRules) {
             foreach ($attributeRules as $attributeRule) {
                 $parsedRule = $this->parseRuleString($attributeRule);
@@ -65,6 +67,7 @@ class Sanitizer
                 }
             }
         }
+
         return $parsedRules;
     }
 
@@ -84,9 +87,11 @@ class Sanitizer
             $name    = $rule;
             $options = [];
         }
-        if (!$name) {
+
+        if (! $name) {
             return [];
         }
+
         return compact('name', 'options');
     }
 
@@ -100,14 +105,17 @@ class Sanitizer
     protected function applyFilter($name, $value, $options = [])
     {
         // If the filter does not exist, throw an Exception:
-        if (!isset($this->filters[$name])) {
+        if (! isset($this->filters[$name])) {
             throw new InvalidArgumentException("No filter found by the name of $name");
         }
+
         $filter = $this->filters[$name];
+
         if ($filter instanceof Closure) {
             return call_user_func_array($filter, [$value, $options]);
         } else {
             $filter = new $filter;
+
             return $filter->apply($value, $options);
         }
     }
@@ -120,6 +128,7 @@ class Sanitizer
     public function sanitize()
     {
         $sanitized = $this->data;
+
         foreach ($this->rules as $attr => $rules) {
             if (Arr::has($this->data, $attr)) {
                 $value = Arr::get($this->data, $attr);
@@ -129,6 +138,7 @@ class Sanitizer
                 Arr::set($sanitized, $attr, $value);
             }
         }
+
         return $sanitized;
     }
 
@@ -147,6 +157,7 @@ class Sanitizer
                 $value = $this->applyFilter($rule['name'], $value, $rule['options']);
             }
         }
+
         return $value;
     }
 }

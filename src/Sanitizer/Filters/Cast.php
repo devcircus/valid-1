@@ -37,11 +37,11 @@ class Cast implements Filter
             case 'boolean':
                 return (bool) $value;
             case 'object':
-                return \is_array($value) ? (object) $value : \json_decode($value, false);
+                return is_array($value) ? (object) $value : json_decode($value, false);
             case 'array':
-                return \json_decode($value, true);
+                return json_decode($value, true);
             case 'collection':
-                $array = \is_array($value) ? $value : \json_decode($value, true);
+                $array = is_array($value) ? $value : json_decode($value, true);
                 return new Collection($array);
             default:
                 throw new InvalidArgumentException("Wrong Sanitizer casting format: {$type}.");

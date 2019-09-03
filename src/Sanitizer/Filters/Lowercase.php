@@ -19,6 +19,6 @@ class Lowercase implements Filter
      */
     public function apply($value, $options = [])
     {
-        return \is_string($value) ? \strtolower($value) : $value;
+        return is_string($value) ? strtolower($value) : $value;
     }
 }

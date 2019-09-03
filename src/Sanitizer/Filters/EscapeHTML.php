@@ -19,6 +19,6 @@ class EscapeHTML implements Filter
      */
     public function apply($value, $options = [])
     {
-        return \is_string($value) ? \filter_var($value, FILTER_SANITIZE_STRING) : $value;
+        return is_string($value) ? filter_var($value, FILTER_SANITIZE_STRING) : $value;
     }
 }

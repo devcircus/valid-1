@@ -48,11 +48,11 @@ class Factory
      */
     public function extend($name, $customFilter)
     {
-        if (\empty($name) || ! \is_string($name)) {
+        if (empty($name) || ! is_string($name)) {
             throw new InvalidArgumentException('The Sanitizer filter name must be a non-empty string.');
         }
 
-        if (! ($customFilter instanceof Closure) && ! \in_array(Filter::class, \class_implements($customFilter))) {
+        if (! ($customFilter instanceof Closure) && ! in_array(Filter::class, class_implements($customFilter))) {
             throw new InvalidArgumentException('Custom filter must be a Closure or a class implementing the Waavi\Sanitizer\Contracts\Filter interface.');
         }
 

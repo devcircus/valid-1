@@ -19,6 +19,6 @@ class Trim implements Filter
      */
     public function apply($value, $options = [])
     {
-        return \is_string($value) ? \trim($value) : $value;
+        return is_string($value) ? trim($value) : $value;
     }
 }

@@ -19,6 +19,6 @@ class StripTags implements Filter
      */
     public function apply($value, $options = [])
     {
-        return \is_string($value) ? \strip_tags($value) : $value;
+        return is_string($value) ? strip_tags($value) : $value;
     }
 }

@@ -19,6 +19,6 @@ class Capitalize implements Filter
      */
     public function apply($value, $options = [])
     {
-        return \is_string($value) ? \ucwords(\strtolower($value)) : $value;
+        return is_string($value) ? ucwords(strtolower($value)) : $value;
     }
 }

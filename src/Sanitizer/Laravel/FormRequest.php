@@ -6,6 +6,7 @@
 
 namespace PerfectOblivion\Valid\Sanitizer\Laravel;
 
+use PerfectOblivion\Valid\Sanitizer\Sanitizer;
 use Illuminate\Foundation\Http\FormRequest as LaravelFormRequest;
 
 class FormRequest extends LaravelFormRequest
@@ -24,7 +25,7 @@ class FormRequest extends LaravelFormRequest
      */
     public function sanitize()
     {
-        $this->sanitizer = \Sanitizer::make($this->input(), $this->filters());
+        $this->sanitizer = Sanitizer::make($this->input(), $this->filters());
         $this->replace($this->sanitizer->sanitize());
     }
 
