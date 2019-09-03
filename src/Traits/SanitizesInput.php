@@ -2,8 +2,8 @@
 
 namespace PerfectOblivion\Valid\Traits;
 
-use Waavi\Sanitizer\Sanitizer;
-use Waavi\Sanitizer\Laravel\SanitizesInput as BaseTrait;
+use PerfectOblivion\Valid\Sanitizer\Sanitizer;
+use PerfectOblivion\Valid\Sanitizer\Laravel\SanitizesInput as BaseTrait;
 
 trait SanitizesInput
 {
