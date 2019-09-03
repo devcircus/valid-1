@@ -9,7 +9,6 @@ namespace PerfectOblivion\Valid\Sanitizer;
 use Closure;
 use Illuminate\Support\Arr;
 use InvalidArgumentException;
-use PerfectOblivion\Valid\Sanitizer\Filters;
 use Illuminate\Validation\ValidationRuleParser;
 
 class Sanitizer
@@ -42,8 +41,8 @@ class Sanitizer
      */
     public function __construct(array $data, array $rules, array $customFilters = [])
     {
-        $this->data    = $data;
-        $this->rules   = $this->parseRulesArray($rules);
+        $this->data = $data;
+        $this->rules = $this->parseRulesArray($rules);
         $this->filters = array_merge($this->filters, $customFilters);
     }
 
@@ -72,7 +71,7 @@ class Sanitizer
     }
 
     /**
-     * Parse a rule string formatted as filterName:option1, option2 into an array formatted as [name => filterName, options => [option1, option2]]
+     * Parse a rule string formatted as filterName:option1, option2 into an array formatted as [name => filterName, options => [option1, option2]].
      *
      * @param  string  $rule    Formatted as 'filterName:option1, option2' or just 'filterName'
      *
@@ -81,10 +80,10 @@ class Sanitizer
     protected function parseRuleString($rule)
     {
         if (strpos($rule, ':') !== false) {
-            list($name, $options) = explode(':', $rule, 2);
-            $options              = array_map('trim', explode(',', $options));
+            [$name, $options] = explode(':', $rule, 2);
+            $options = array_map('trim', explode(',', $options));
         } else {
-            $name    = $rule;
+            $name = $rule;
             $options = [];
         }
 
@@ -96,7 +95,7 @@ class Sanitizer
     }
 
     /**
-     * Apply the given filter by its name
+     * Apply the given filter by its name.
      *
      * @param  mixed  $name
      *
@@ -121,7 +120,7 @@ class Sanitizer
     }
 
     /**
-     * Sanitize the given data
+     * Sanitize the given data.
      *
      * @return array
      */
@@ -143,7 +142,7 @@ class Sanitizer
     }
 
     /**
-     * Sanitize the given attribute
+     * Sanitize the given attribute.
      *
      * @param  string  $attribute  Attribute name
      * @param  mixed  $value      Attribute value

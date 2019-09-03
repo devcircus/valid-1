@@ -21,7 +21,7 @@ class FormRequest extends LaravelFormRequest
     }
 
     /**
-     * Sanitize this request's input
+     * Sanitize this request's input.
      */
     public function sanitize()
     {
