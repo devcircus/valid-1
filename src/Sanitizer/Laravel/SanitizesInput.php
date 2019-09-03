@@ -31,7 +31,7 @@ trait SanitizesInput
     }
 
     /**
-     *  Sanitize this request's input
+     *  Sanitize this request's input.
      */
     public function sanitize()
     {
@@ -41,7 +41,7 @@ trait SanitizesInput
     }
 
     /**
-     *  Add custom fields to the Sanitizer
+     *  Add custom fields to the Sanitizer.
      */
     public function addCustomFilters()
     {

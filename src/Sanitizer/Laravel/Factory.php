@@ -25,7 +25,7 @@ class Factory
     }
 
     /**
-     * Create a new Sanitizer instance
+     * Create a new Sanitizer instance.
      *
      * @param  array  $data       Data to be sanitized
      * @param  array  $rules      Filters to be applied to the given data
@@ -35,6 +35,7 @@ class Factory
     public function make(array $data, array $rules)
     {
         $sanitizer = new Sanitizer($data, $rules, $this->customFilters);
+
         return $sanitizer;
     }
 

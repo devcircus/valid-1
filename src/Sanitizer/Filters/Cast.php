@@ -42,6 +42,7 @@ class Cast implements Filter
                 return json_decode($value, true);
             case 'collection':
                 $array = is_array($value) ? $value : json_decode($value, true);
+
                 return new Collection($array);
             default:
                 throw new InvalidArgumentException("Wrong Sanitizer casting format: {$type}.");
