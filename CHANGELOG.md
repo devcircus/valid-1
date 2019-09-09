@@ -18,3 +18,7 @@ All notable changes to perfect-oblivion/valid will be documented in this file
 ## 0.2.2 - 09/04/2019
 
 -   Fix version
+
+## 0.2.3 - 09/09/2019
+
+-   Fix leftover namespace from waavi/sanitizer in the StripTags filter.

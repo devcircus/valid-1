@@ -54,7 +54,7 @@ class Factory
         }
 
         if (! ($customFilter instanceof Closure) && ! in_array(Filter::class, class_implements($customFilter))) {
-            throw new InvalidArgumentException('Custom filter must be a Closure or a class implementing the Waavi\Sanitizer\Contracts\Filter interface.');
+            throw new InvalidArgumentException('Custom filter must be a Closure or a class implementing the PerfectOblivion\Valid\Sanitizer\Contracts\Filter interface.');
         }
 
         $this->customFilters[$name] = $customFilter;
