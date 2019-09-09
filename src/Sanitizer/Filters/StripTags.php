@@ -4,9 +4,9 @@
  * Sanitization functionality to be customized within this project before a 1.0 release.
  */
 
-namespace Waavi\Sanitizer\Filters;
+namespace PerfectOblivion\Valid\Sanitizer\Filters;
 
-use Waavi\Sanitizer\Contracts\Filter;
+use PerfectOblivion\Valid\Sanitizer\Contracts\Filter;
 
 class StripTags implements Filter
 {
